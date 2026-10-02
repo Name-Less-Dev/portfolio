@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+coverage
+*.tsbuildinfo
+next-env.d.ts
+.env*.local
+
+# configuração local do painel de preview (caminhos desta máquina)
+.claude

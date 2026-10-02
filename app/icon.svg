@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!--
+    Favicon: d20 reduzido ao mínimo legível em 16 a 32 px.
+    Silhueta (hexágono) na cor de destaque e a face da frente (triângulo) recortada na cor do fundo.
+    Cores em hex porque o favicon é lido fora da página: as variáveis CSS não chegam aqui.
+    Fundo = variável bg do site (#1a1625); dado = variável accent (#e8a33d).
+    Atenção: comentários XML não podem conter dois hífens seguidos (quebra o SVG).
+  -->
+  <rect width="32" height="32" fill="#1a1625" />
+  <polygon points="16,3 27.3,9.5 27.3,22.5 16,29 4.7,22.5 4.7,9.5" fill="#e8a33d" />
+  <polygon points="16,8 23.6,21.2 8.4,21.2" fill="none" stroke="#1a1625" stroke-width="3" stroke-linejoin="round" />
+</svg>
