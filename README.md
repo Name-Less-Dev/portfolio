@@ -13,9 +13,7 @@ rota `/critico`. O conteúdo do site é em português.
 
 ## Preview
 
-![Home page of the portfolio: the name "Matheus Bezerra" centered over a cluster of amber-edged 3D RPG dice on a dark violet background](docs/screenshot-home.png)
-
-> TODO: screenshot to be added manually (`docs/screenshot-home.png` does not exist yet).
+![Hero of the portfolio: the name "Matheus Bezerra" and the subtitle "Desenvolvedor Front-End / Full-Stack" centered, surrounded by six amber-edged 3D RPG dice and smaller dark dice on a dark violet background](docs/screenshot-home.png)
 
 ## Highlights
 
