@@ -21,6 +21,7 @@ export const projects: Project[] = [
     title: "FlowForge",
     description: "Interface de produto pensada pra parecer que já tem usuários pagantes.",
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    repoUrl: "https://github.com/Name-Less-Dev/flowforge-landing",
     image: {
       src: "/projects/flowforge.png",
       alt: "Página inicial do FlowForge: título “Automatize tarefas. Escale resultados.” ao lado de um painel de análise de workflow",
@@ -57,6 +58,7 @@ export const projects: Project[] = [
     description:
       "Um jogo 2D construído do zero em Unity — a mesma lógica de sistemas que uso pra construir para a web.",
     stack: ["Unity", "C#", "Aseprite"],
+    repoUrl: "https://github.com/Name-Less-Dev/Hex-Broom",
     image: {
       src: "/projects/hexbroom.png",
       alt: "Pixel art do Hex Broom: uma bruxinha de chapéu roxo voando de vassoura num céu estrelado",

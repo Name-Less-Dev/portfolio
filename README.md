@@ -118,7 +118,7 @@ TODO: verify that pushes to `main` trigger automatic production deploys (the rep
 ## Limitations and next steps
 
 - The site is Portuguese only (`lang="pt-BR"`); there is no English version.
-- Only Storyboard API has a repository link so far; the other project cards have no `repoUrl` / `liveUrl` yet (`data/projects.ts`).
+- FoundCalc has no repository link yet, and no project has a live-demo link (`liveUrl` in `data/projects.ts`).
 - There is no social-media preview image (no Open Graph image or Open Graph metadata).
 - The game has no touch controls: on phones you can shoot by tapping, but you cannot move (a virtual joystick is not implemented).
 - No linting is set up (no ESLint).

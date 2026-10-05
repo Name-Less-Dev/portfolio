@@ -33,12 +33,13 @@ describe("ProjectCard — imagens", () => {
     }
   });
 
-  it("o Storyboard API já tem o link do repositório; os outros ainda não", () => {
-    const withRepo = projects.filter((p) => p.repoUrl).map((p) => p.title);
-    expect(withRepo).toEqual(["Storyboard API"]);
-    expect(projects.find((p) => p.title === "Storyboard API")!.repoUrl).toBe(
-      "https://github.com/Name-Less-Dev/storyboard-api",
-    );
+  it("FlowForge, Storyboard API e Hex Broom têm link do código; FoundCalc ainda não", () => {
+    const repos = Object.fromEntries(projects.filter((p) => p.repoUrl).map((p) => [p.title, p.repoUrl]));
+    expect(repos).toEqual({
+      FlowForge: "https://github.com/Name-Less-Dev/flowforge-landing",
+      "Storyboard API": "https://github.com/Name-Less-Dev/storyboard-api",
+      "Hex Broom": "https://github.com/Name-Less-Dev/Hex-Broom",
+    });
   });
 
   it("só o Hex Broom (pixel art) usa image-rendering: pixelated e é servido sem o otimizador", () => {
