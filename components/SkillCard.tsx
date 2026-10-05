@@ -36,7 +36,7 @@ export default function SkillCard({ name, techs, icon }: Props) {
       tabIndex={0}
       data-flipped={flipped}
       aria-label={`${name}: ${techs.join(", ")}`}
-      className="group h-64 cursor-pointer rounded-xl perspective-[1000px] focus-visible:outline-accent"
+      className="group h-72 cursor-pointer rounded-xl perspective-[1000px] focus-visible:outline-accent"
       onPointerDown={(e) => (lastPointer.current = e.pointerType)}
       onClick={() => {
         // Com mouse quem vira é o hover; o clique só alterna em toque/caneta

@@ -16,6 +16,14 @@ describe("Contact", () => {
     );
   });
 
+  it("link secundário para o currículo em PDF, em nova aba", () => {
+    render(<Contact />);
+    const resume = screen.getByRole("link", { name: "Currículo (PDF)" });
+    expect(resume).toHaveAttribute("href", "/Matheus_Bezerra_Curriculo.pdf");
+    expect(resume).toHaveAttribute("target", "_blank");
+    expect(resume).toHaveAttribute("rel", "noopener noreferrer");
+  });
+
   it("link secundário para o jogo, interno (mesma aba)", () => {
     render(<Contact />);
     const game = screen.getByRole("link", { name: "Jogar Crítico Natural" });

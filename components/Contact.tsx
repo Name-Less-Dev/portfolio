@@ -8,6 +8,8 @@ const EMAIL = "matheusdearaujobezerra@gmail.com";
 const links = [
   { label: "GitHub", href: "https://github.com/Name-Less-Dev" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/matheus-araujo-bezerra" },
+  // Arquivo em /public; abre em nova aba (o navegador mostra o PDF)
+  { label: "Currículo (PDF)", href: "/Matheus_Bezerra_Curriculo.pdf" },
 ];
 
 // Mesma lógica do Sobre: cantos e margens laterais, longe do conteúdo centralizado.

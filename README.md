@@ -18,7 +18,7 @@ rota `/critico`. O conteúdo do site é em português.
 ## Highlights
 
 - **Interactive 3D hero** — React Three Fiber scene with the six RPG dice (d4, d6, d8, d10, d12, d20). Each die rotates and bobs on its own; when the mouse gets close, the die is pushed away from the cursor (raycast onto a plane at the die's depth) and eases back afterwards.
-- **Sections** — Projects (glass cards with cover images and tech tags), Skills (six flip cards, each illustrated with a 2D die drawn from the same three.js geometry), About (text plus a timeline panel) and Contact (e-mail, GitHub, LinkedIn and a d20 you can drag to spin, with inertia).
+- **Sections** — Projects (glass cards with cover images, tech tags and optional "Ver código" / "Ver ao vivo" links), Skills (six flip cards, each illustrated with a 2D die drawn from the same three.js geometry), About (text plus a timeline panel) and Contact (e-mail, GitHub, LinkedIn, a PDF résumé download and a d20 you can drag to spin, with inertia).
 - **Hidden mini-game, "Crítico Natural"** at `/critico` — you are a d20: move with WASD/arrow keys, click to fire a shot whose damage (1–20) is pre-rolled and shown above the die, and survive enemy dice (d4 → d20, HP equal to their number of sides) that chase you with increasing frequency. Three lives, a survival timer, game over and restart. Reachable from the ▶ icon next to the "MB" logo and from a link in the Contact section.
 - **Reusable section atmosphere** — `SectionAtmosphere` combines an amber radial glow (configurable position, size and strength) with a layer of small background dice; Projects, Skills, About and Contact each use it with their own composition.
 - **Navigation extras** — a side navigation (screens ≥ 1280 px) whose die icon lights up for the section in view, and a floating WhatsApp button that appears after the hero.
@@ -93,13 +93,13 @@ Node version: not pinned (no `.nvmrc` and no `engines` field). It was developed 
 
 ## Tests
 
-`npm run test` runs 72 tests in 16 files with Vitest in a jsdom environment. WebGL is not available in jsdom, so the 3D canvases are mocked in tests (`vitest.setup.ts` and `app/page.test.tsx`); the 3D scenes themselves are not covered by automated tests.
+`npm run test` runs 75 tests in 16 files with Vitest in a jsdom environment. WebGL is not available in jsdom, so the 3D canvases are mocked in tests (`vitest.setup.ts` and `app/page.test.tsx`); the 3D scenes themselves are not covered by automated tests.
 
 What the suite covers:
 
 - **Game engine** (`components/game/*.test.ts`): movement and arena limits, the pre-rolled 1–20 damage, shot direction, cooldown, projectile collision (including fast projectiles not tunnelling through enemies), enemy spawning and chasing, player lives, invulnerability, game over and restart, the difficulty ramp (spawn interval, unlock order of enemy types, weighted type selection, enemy cap) and timer formatting.
 - **3D helpers** (`components/hero/*.test.ts`): the d10 geometry and dice sizes, and the drag-to-spin physics (direction, velocity cap, inertia decay independent of frame rate).
-- **Components**: page section order and the two links to the game; Navbar links and the ▶ shortcut; side navigation and the WhatsApp link; About text, highlights and timeline; Contact links and the single solid-accent button; skill cards (flip by tap, tap outside and keyboard); project card images (alt text, pixelated rendering only for the pixel-art cover); `SectionAtmosphere` glow positioning; and the 2D die drawing (only real edges, no triangulation diagonals).
+- **Components**: page section order and the two links to the game; Navbar links and the ▶ shortcut; side navigation and the WhatsApp link; About text, highlights and timeline; Contact links (including the résumé PDF) and the single solid-accent button; skill cards (flip by tap, tap outside and keyboard); project cards (image alt text, pixelated rendering only for the pixel-art cover, repository/live links only when set); `SectionAtmosphere` glow positioning; and the 2D die drawing (only real edges, no triangulation diagonals).
 
 ## Design decisions
 
@@ -118,7 +118,7 @@ TODO: verify that pushes to `main` trigger automatic production deploys (the rep
 ## Limitations and next steps
 
 - The site is Portuguese only (`lang="pt-BR"`); there is no English version.
-- Project cards have no links to a repository or live demo yet (the `url` field exists in `data/projects.ts` but no project sets it).
+- Only Storyboard API has a repository link so far; the other project cards have no `repoUrl` / `liveUrl` yet (`data/projects.ts`).
 - There is no social-media preview image (no Open Graph image or Open Graph metadata).
 - The game has no touch controls: on phones you can shoot by tapping, but you cannot move (a virtual joystick is not implemented).
 - No linting is set up (no ESLint).

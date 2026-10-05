@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Project } from "@/data/projects";
 
 // Placeholders na paleta do site até as imagens reais chegarem (um por posição no grid)
@@ -9,12 +8,15 @@ const PLACEHOLDERS = [
   "bg-[radial-gradient(circle_at_60%_20%,color-mix(in_srgb,var(--accent)_25%,transparent),transparent_50%),radial-gradient(circle_at_20%_90%,color-mix(in_srgb,var(--muted)_45%,transparent),transparent_55%),linear-gradient(160deg,var(--bg),var(--surface))]",
 ];
 
+const LINK =
+  "text-small text-fg/80 underline decoration-muted underline-offset-4 transition-colors hover:text-accent hover:decoration-accent";
+
 export default function ProjectCard({
   title,
   description,
   stack,
-  url,
-  action,
+  repoUrl,
+  liveUrl,
   image,
   index = 0,
 }: Project & { index?: number }) {
@@ -52,24 +54,18 @@ export default function ProjectCard({
           ))}
         </ul>
 
-        {(action || url) && (
-          <div className="mt-5 flex flex-wrap gap-6">
-            {action && (
-              <Link
-                href={action.href}
-                className="inline-block rounded-md border border-accent px-5 py-2.5 text-small font-medium text-accent transition-colors hover:bg-accent/10"
-              >
-                {action.label}
-              </Link>
+        {/* Links de texto discretos, só quando existem. Sem botão sólido: esse estilo é
+            exclusivo do e-mail no Contato. */}
+        {(repoUrl || liveUrl) && (
+          <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+            {repoUrl && (
+              <a href={repoUrl} target="_blank" rel="noopener noreferrer" className={LINK}>
+                Ver código
+              </a>
             )}
-            {url && (
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-2.5 text-small underline decoration-muted underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-              >
-                Ver projeto
+            {liveUrl && (
+              <a href={liveUrl} target="_blank" rel="noopener noreferrer" className={LINK}>
+                Ver ao vivo
               </a>
             )}
           </div>

@@ -22,10 +22,11 @@ export default function Projects() {
       title="Projetos"
       backdrop={<SectionAtmosphere glows={[{ at: { x: 50, y: 58 }, strength: 10 }]} dice={DICE} />}
     >
-      {/* Cresce sozinho: projeto novo no array = nova célula, quebrando linha quando precisar */}
-      <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {/* Cresce sozinho: projeto novo no array = novo card. Flex com largura fixa por card (não
+          grid): uma linha incompleta fica centralizada e o card solitário não estica. */}
+      <ul className="mt-12 flex flex-wrap justify-center gap-6">
         {projects.map((project, i) => (
-          <li key={project.title}>
+          <li key={project.title} className="w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
             <ProjectCard {...project} index={i} />
           </li>
         ))}

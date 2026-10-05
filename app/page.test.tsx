@@ -17,11 +17,11 @@ describe("Home", () => {
     expect(headings).toEqual(order);
   });
 
-  it("lista os projetos em grid, na ordem FlowForge → FoundCalc → Hex Broom", () => {
+  it("lista os projetos na ordem FlowForge → Storyboard API → FoundCalc → Hex Broom", () => {
     render(<Home />);
     const projetos = screen.getByRole("region", { name: "Projetos" });
     const titles = [...projetos.querySelectorAll("article h3")].map((h) => h.textContent);
-    expect(titles).toEqual(["FlowForge", "FoundCalc", "Hex Broom"]);
+    expect(titles).toEqual(["FlowForge", "Storyboard API", "FoundCalc", "Hex Broom"]);
   });
 
   it("o card do Hex Broom é só o projeto em Unity: sem botão de jogo", () => {

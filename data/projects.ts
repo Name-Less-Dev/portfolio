@@ -2,9 +2,10 @@ export type Project = {
   title: string;
   description: string;
   stack: string[];
-  url?: string;
-  /** Ação interna do site (ex.: jogo jogável no próprio portfólio) */
-  action?: { label: string; href: string };
+  /** Repositório do código. Opcional: o card só mostra "Ver código" quando existe. */
+  repoUrl?: string;
+  /** Versão publicada. Opcional: o card só mostra "Ver ao vivo" quando existe. */
+  liveUrl?: string;
   /**
    * Capa exibida em 16:9 (em /public), recortada com object-fit: cover. Sem ela, o card
    * usa um placeholder na paleta do site. `pixelated`: pixel art — amplia sem borrar e
@@ -14,7 +15,7 @@ export type Project = {
   image?: { src: string; alt: string; pixelated?: boolean; position?: string };
 };
 
-// Ordem proposital: produto → sistema completo → jogo
+// Ordem proposital: produto → API → sistema completo → jogo
 export const projects: Project[] = [
   {
     title: "FlowForge",
@@ -25,6 +26,20 @@ export const projects: Project[] = [
       alt: "Página inicial do FlowForge: título “Automatize tarefas. Escale resultados.” ao lado de um painel de análise de workflow",
       // 2,14:1 → o 16:9 corta ~17% da largura; puxa o corte pra direita e preserva o título/logo
       position: "20% 50%",
+    },
+  },
+  {
+    title: "Storyboard API",
+    description:
+      "API que transforma o brief de um vídeo publicitário em roteiro por cenas, validada na entrada e na saída, com testes e CI.",
+    stack: ["Python", "FastAPI", "Pydantic", "SQLAlchemy", "pytest", "GitHub Actions"],
+    repoUrl: "https://github.com/Name-Less-Dev/storyboard-api",
+    image: {
+      src: "/projects/storyboard-api.png",
+      alt: "Terminal showing the JSON storyboard returned by POST /briefs",
+      // 2,32:1 → o 16:9 corta ~23% da largura; o JSON começa na borda esquerda, então ancora
+      // o corte à esquerda e quem perde é só o fim das linhas longas
+      position: "0% 50%",
     },
   },
   {
