@@ -36,7 +36,7 @@ export default function SkillCard({ name, techs, icon }: Props) {
       tabIndex={0}
       data-flipped={flipped}
       aria-label={`${name}: ${techs.join(", ")}`}
-      className="group h-72 cursor-pointer rounded-xl perspective-[1000px] focus-visible:outline-accent"
+      className="group h-80 cursor-pointer rounded-xl perspective-[1000px] focus-visible:outline-accent"
       onPointerDown={(e) => (lastPointer.current = e.pointerType)}
       onClick={() => {
         // Com mouse quem vira é o hover; o clique só alterna em toque/caneta
@@ -69,7 +69,7 @@ export default function SkillCard({ name, techs, icon }: Props) {
           className={`absolute inset-0 flex rotate-y-180 flex-col justify-center rounded-xl border bg-surface p-6 backface-hidden transition-[border-color,box-shadow] duration-300 ${turning ? "border-accent/60 shadow-[0_0_22px_-6px_color-mix(in_srgb,var(--accent)_45%,transparent)]" : "border-muted/40"}`}
         >
           <p className="text-small text-fg/60">{name}</p>
-          <ul className="mt-2 space-y-1 text-fg">
+          <ul className="mt-2 space-y-1 leading-snug text-fg">
             {techs.map((tech) => (
               <li key={tech}>{tech}</li>
             ))}

@@ -33,13 +33,16 @@ describe("ProjectCard — imagens", () => {
     }
   });
 
-  it("FlowForge, Storyboard API e Hex Broom têm link do código; FoundCalc ainda não", () => {
+  it("todos menos o FoundCalc têm link do código; só o taskdeck tem versão ao vivo", () => {
     const repos = Object.fromEntries(projects.filter((p) => p.repoUrl).map((p) => [p.title, p.repoUrl]));
     expect(repos).toEqual({
       FlowForge: "https://github.com/Name-Less-Dev/flowforge-landing",
+      taskdeck: "https://github.com/Name-Less-Dev/taskdeck",
       "Storyboard API": "https://github.com/Name-Less-Dev/storyboard-api",
       "Hex Broom": "https://github.com/Name-Less-Dev/Hex-Broom",
     });
+    const live = Object.fromEntries(projects.filter((p) => p.liveUrl).map((p) => [p.title, p.liveUrl]));
+    expect(live).toEqual({ taskdeck: "https://taskdeck-flax.vercel.app" });
   });
 
   it("só o Hex Broom (pixel art) usa image-rendering: pixelated e é servido sem o otimizador", () => {

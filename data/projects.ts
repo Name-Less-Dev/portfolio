@@ -15,7 +15,7 @@ export type Project = {
   image?: { src: string; alt: string; pixelated?: boolean; position?: string };
 };
 
-// Ordem proposital: produto → API → sistema completo → jogo
+// Ordem proposital: produto → app → API → sistema completo → jogo
 export const projects: Project[] = [
   {
     title: "FlowForge",
@@ -27,6 +27,18 @@ export const projects: Project[] = [
       alt: "Página inicial do FlowForge: título “Automatize tarefas. Escale resultados.” ao lado de um painel de análise de workflow",
       // 2,14:1 → o 16:9 corta ~17% da largura; puxa o corte pra direita e preserva o título/logo
       position: "20% 50%",
+    },
+  },
+  {
+    title: "taskdeck",
+    description:
+      "App de tarefas em formato de cartas, mobile-first e instalável, que funciona offline e sem backend. Domínio puro e testado — 910 testes unitários, 246 de componente e 88 e2e — com CI rodando em 3 fusos horários.",
+    stack: ["React", "TypeScript", "PWA", "IndexedDB", "Playwright"],
+    repoUrl: "https://github.com/Name-Less-Dev/taskdeck",
+    liveUrl: "https://taskdeck-flax.vercel.app",
+    image: {
+      src: "/projects/taskdeck.png",
+      alt: "Tela do taskdeck: a carta da tarefa “Organizar a gaveta de documentos” inclinada sobre o baralho, com os botões Mais tarde, Amanhã, Apagar e Concluir embaixo",
     },
   },
   {
